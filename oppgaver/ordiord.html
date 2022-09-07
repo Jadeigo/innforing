@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ord i Ord</title>
+</head>
+<body>
+    <h1>Spill ord i Ord</h1>
+    <div id="left"> 
+        <p id="randomword"></p>
+        <hr />
+        <h2>Gjett ord</h2>
+        <input id="word" type="text" disabled />
+        <button id="check">Sjekk</button>
+
+        <p><buton id="start">START SPILLET</buton></p>
+    </div>  
+
+    <div id="right">
+        <h2>Gjettede ord:</h2>
+        <ul id="wordlist">
+
+        </ul>
+    </div>
+
+    <script>
+        var randomWords = [
+            "Progammering", "Spilleliste", "inkrementering", "konkatinering", "filstruktur", "kodeeditor", "javascript"
+        ];
+
+        function start() {
+            document.getElementById("word").disabled = false;
+        }
+
+        document.getElementById("start").addEventListener("click", start);
+    </script>
+</body>
+
+</html>
