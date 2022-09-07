@@ -25,46 +25,48 @@
         //Klargjør variabler for utregning
         const startingPoint = 255
         let checksum = 0
-        // #1. byttet const med let
+        // #1. byttet const med let siden variabel kan endre seg. 
         const multiplier = 3
         //Ditt navn. PS: Bytt denne til ditt navn
-        // #2. mangla 2 // dor å gjør kommentar
+        // #2. mangla 2 // for å gjør kommentar. hvis ikke så ser det ut som kode. 
 
         //Selve navnebyttet er ikke en feil som teller mot de 10 feilene du skal finne.
         const myName = "Diego";
 
         //Klargjør variabel for bygging av tekst
         let greeting = "";
-        //#3. let skrevet med en 1 t. 
+        //#3. let skrevet med en 1 t. skrivefeil.  
         const saluteClass = "pyro";
 
         //Kontroller datatype
         if(typeof myName === "string") {
             checksum = startingPoint * multiplier
-            // #4. Checksum skrevet feil 
+            // #4. Checksum skrevet feil. skrivefeil. 
         } else {
             checksum = startingPoint
         }
 
         //Kontroller checksum
         if(checksum != 765) {
-            //#5. bruker ikke !
+            //#5. != trenger kun en =. inequality operator. 
             greeting = "beklager"
         } else {
             greeting = "gratulerer"
+            // #6.greeting skrevet feil. skrivefeil. 
             const output = greeting + ", " + myName + "<br>Du klarte det!"
-            // #6.greeeting skrevet feil
-            // #7. innen br slettet / 
+            // #7. innen br slettet /. 
             const textElement = document.getElementById("text");
-            //#8 . glemte ;
+            //#8 . glemte ; på slutten. Den bruker vi til å separere kode hvor den kan ikke se hvor den slutter. 
             const saluteElement = document.getElementById("salute")
-            // #9 Id skrevet feil. 
+            // #9 Id skrevet feil. Skrivefeil. 
             textElement.removeAttribute("class")
             textElement.innerHTML = output
             saluteElement.setAttribute("class",saluteClass)
-            // #10. saluteClass skrevet feil. 
+            // #10. saluteClass skrevet feil. skrivefeil. 
             document.body.setAttribute("class","success")
         }
+
+        //Mange av disse skrivefeil er viktig å rette opp sånn at koden forstår hva den linje ser etter eller hvor en den kobler at.
 
         /*
          * IKKE ENDRE NOE ETTER DENNE KOMMENTAREN
