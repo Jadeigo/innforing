@@ -210,7 +210,7 @@
             
             computer.style.display = "block"
             /* OPPGAVE 2.1: FORKLAR HVA SOM SKJER PÅ LINJE 208
-             * 
+            /*  
              */
 
             computer.innerHTML = "Computer selects " + computerSign
@@ -293,6 +293,12 @@
         function getRandomInt(max) {
         //Oppgave 1. Feil #4. Function skrevet feil. 
             return Math.floor(Math.random() * max);
+        } 
+
+        if(winner != player) {
+            document.body.style.backgroundColor = "yellow"; 
+        } else {
+            document.body.style.backgroundColor = "gray";
         }
     </script>
 </body>
