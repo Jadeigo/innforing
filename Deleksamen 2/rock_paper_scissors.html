@@ -210,7 +210,7 @@
             
             computer.style.display = "block"
             /* OPPGAVE 2.1: FORKLAR HVA SOM SKJER PÅ LINJE 208
-            /*  
+            /*  Har sier vi at det datamaskin har valgt skal vises ut i en boks. 
              */
 
             computer.innerHTML = "Computer selects " + computerSign
@@ -256,16 +256,21 @@
 
             winnerDiv.innerHTML = "The winner is " + winner
             /* OPPGAVE 2.2: FORKLAR HVA SOM SKJER PÅ LINJE 254
-             * _ditt svar her_ 
+             * Har henter vi ut hvem vinneren er, sånn at vi kan kan hente den i websida og må ikke gå in i console for å skjekke. 
              */
+
+             
 
             //Now, lastly, let's update the counter on how many games we have played:
             counter = counter + 1
 
             document.getElementById("counter").innerHTML = counter
             /* OPPGAVE 2.3: FORKLAR HVA SOM SKJER PÅ LINJE 262
-             * _ditt svar her_ 
+             * Har henter vi vår counter for å fortelle hvor mange ganger vi har spillt. 
              */
+             if(counter >= 0) {
+            document.getElementById("counter").style.color = "#be5944"
+        }
 
             //And display the button for playing again:
             document.getElementById("replay").style.display = "block"
@@ -295,11 +300,11 @@
             return Math.floor(Math.random() * max);
         } 
 
-        if(winner != player) {
-            document.body.style.backgroundColor = "yellow"; 
+        if(winner === "player") {
+            document.getElementById("") = "yellow"; 
         } else {
             document.body.style.backgroundColor = "gray";
-        }
+        } 
     </script>
 </body>
 </html>
