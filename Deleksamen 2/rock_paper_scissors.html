@@ -254,12 +254,18 @@
             const winnerDiv = document.getElementById("winner")
             winnerDiv.style.display = "block"
 
-            winnerDiv.innerHTML = "The winner is " + winner
+            /*winnerDiv.innerHTML = "The winner is " + winner*/
             /* OPPGAVE 2.2: FORKLAR HVA SOM SKJER PÅ LINJE 254
              * Har henter vi ut hvem vinneren er, sånn at vi kan kan hente den i websida og må ikke gå in i console for å skjekke. 
              */
-
-             
+                if(winner === "player") {
+                    winnerDiv.innerHTML = "You win!"
+                } else {
+                    winnerDiv.innerHTML = "It's a tie."
+                }
+                if(winner === "computer") {
+                    winnerDiv.innerHTML = "You lost."
+                }
 
             //Now, lastly, let's update the counter on how many games we have played:
             counter = counter + 1
@@ -270,7 +276,7 @@
              */
              if(counter >= 0) {
             document.getElementById("counter").style.color = "#be5944"
-        }
+        } 
 
             //And display the button for playing again:
             document.getElementById("replay").style.display = "block"
@@ -300,10 +306,10 @@
             return Math.floor(Math.random() * max);
         } 
 
-        if(winner === "player") {
-            document.getElementById("") = "yellow"; 
+        if(winner != "player") {
+            document.body.style.backgroundColor= "gray"; 
         } else {
-            document.body.style.backgroundColor = "gray";
+            document.body.style.backgroundColor = "#FFD700";
         } 
     </script>
 </body>
