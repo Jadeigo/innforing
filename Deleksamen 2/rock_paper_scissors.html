@@ -128,7 +128,7 @@
         <div id="playerSigns">
             <h2 id="instruction">Play your hand:<span id="choice"></span></h2>
             <button type="button" onClick="play('rock')" id="rockButton" class="playerChoice"><img src="rock.jpg" alt="Rock" /></button>
-            <!--Feil #1 oppg-1. Play skrevet playy.-->
+            <!--Oppgave 1 feil #1. Play skrevet playy.(feil skrevet)-->
             <button type="button" onClick="play('paper')" id="paperButton" class="playerChoice"><img src="paper.jpg" alt="Paper" /></button>
             <button type="button" onClick="play('scissors')" id="scissorsButton" class="playerChoice"><img src="scissors.jpg" alt="Scissors" /></button>
         </div>
@@ -164,7 +164,7 @@
          * On mouseout, remove the text and class
          */
         buttons.forEach(button => {
-        //Feil #2 oppg-1. Button skrevet feil. 
+        //oppg 1 feil #2. Button skrevet feil.(feil skrevett) 
             button.addEventListener("mouseover", (event) => {
                 document.getElementById("choice").innerHTML = button.childNodes[0].alt
                 document.getElementById("choice").setAttribute("class","choiceAnimate")
@@ -206,11 +206,11 @@
             console.log("Computer selected: " + computerSign)
             // Good! Now we also have to show this on the website, by making #computer visible and filling it with HTML:
             const computer = document.getElementById("computer")
-            //Feil #3-ID
+            //Feil #3 oppgave 1. getElementById skrevet feil(ID)
             
             computer.style.display = "block"
             /* OPPGAVE 2.1: FORKLAR HVA SOM SKJER PÅ LINJE 208
-             * _ditt svar her_ 
+             * 
              */
 
             computer.innerHTML = "Computer selects " + computerSign
@@ -291,7 +291,7 @@
 
         //Function for random numnber, fetched from MDN web docs:
         function getRandomInt(max) {
-        //Oppgave 1. Feil #1 fant med console. Function skrevet feil. 
+        //Oppgave 1. Feil #4. Function skrevet feil. 
             return Math.floor(Math.random() * max);
         }
     </script>
