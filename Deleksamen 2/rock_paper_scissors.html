@@ -185,8 +185,6 @@
     </section>
 
     <script>
-        //We'll prepare an empty variable that later will contain the winner
-        let winner = ""
         //And prepare a counter-variable for number of games played:
         let counter = 0
         //Added variable to see how many times player wins, computer and theres a tie. 
@@ -255,91 +253,55 @@
 
             computer.innerHTML = "Computer selects " + computerSign
             // Ok, now we have to check for rules! Paper beats rock, rock beat scissors, scissors beat paper.
-            // This means if players sign beat computer sign, player wins. Lets try:
-            if (playerSign === "paper") {
-                if (computerSign === "rock") {
-                    winner = "player"
-                }
-                if (computerSign === "scissors") {
-                    winner = "computer"
-                }
-                if (computerSign === "paper") {
-                    winner = "undecided"
-                }
-            }
-            if (playerSign === "rock") {
-                if (computerSign === "rock") {
-                    winner = "undecided"
-                }
-                if (computerSign === "scissors") {
-                    winner = "player"
-                }
-                if (computerSign === "paper") {
-                    winner = "computer"
-                }
-            }
-            if (playerSign === "scissors") {
-                if (computerSign === "rock") {
-                    winner = "computer"
-                }
-                if (computerSign === "scissors") {
-                    winner = "undecided"
-                }
-                if (computerSign === "paper") {
-                    winner = "player"
-                }
-            }
-            
-            setTimeout(declareWinner, 1000)     
-        }
+            // This means if players sign beat computer sign, player wins. Lets try: 
 
-        function declareWinner() {
-            //Now we have checks to set the winner. Let's write it to the website.
-            //Now you know the drill: show #winner by display: block and fill it with HTML:
-            const winnerDiv = document.getElementById("winner")
-            winnerDiv.style.display = "block"
+            setTimeout(function () {
+                const winner = checkWinner(playerSign, computerSign)
+                //Now we have checks to set the winner. Let's write it to the website.
+                //Now you know the drill: show #winner by display: block and fill it with HTML:
+                const winnerDiv = document.getElementById("winner")
+                winnerDiv.style.display = "block"
 
-            /*winnerDiv.innerHTML = "The winner is " + winner*/
-            /* OPPGAVE 2.2: FORKLAR HVA SOM SKJER PÅ LINJE 254
-             * Har henter vi ut hvem vinneren er, sånn at vi kan kan hente den i websida og må ikke gå in i console for å skjekke. 
-             */
-            document.body.style.backgroundColor = "gray";
-            if (winner === "player") {
-                winnerDiv.innerHTML = "You win!";
-                playerWins++;
-                document.body.style.backgroundColor = "#FFD700"
-            }
-            else if (winner === "computer") {
-                winnerDiv.innerHTML = "You lost.";
-                computerWins++;
-            }
-            else {
-                winnerDiv.innerHTML = "It's a tie.";
-                draws++;
-            }
-            document.getElementById("playerWins").innerHTML = playerWins
-            document.getElementById("computerWins").innerHTML = computerWins
-            document.getElementById("draws").innerHTML = draws
-            //Now, lastly, let's update the counter on how many games we have played:
-            counter = counter + 1
+                /*winnerDiv.innerHTML = "The winner is " + winner*/
+                /* OPPGAVE 2.2: FORKLAR HVA SOM SKJER PÅ LINJE 254
+                 * Har henter vi ut hvem vinneren er, sånn at vi kan kan hente den i websida og må ikke gå in i console for å skjekke. 
+                 */
+                document.body.style.backgroundColor = "gray";
+                if (winner === "player") {
+                    winnerDiv.innerHTML = "You win!";
+                    playerWins++;
+                    document.body.style.backgroundColor = "#FFD700"
+                }
+                else if (winner === "computer") {
+                    winnerDiv.innerHTML = "You lost.";
+                    computerWins++;
+                }
+                else {
+                    winnerDiv.innerHTML = "It's a tie.";
+                    draws++;
+                }
+                document.getElementById("playerWins").innerHTML = playerWins
+                document.getElementById("computerWins").innerHTML = computerWins
+                document.getElementById("draws").innerHTML = draws
+                //Now, lastly, let's update the counter on how many games we have played:
+                counter = counter + 1
 
-            document.getElementById("counter").innerHTML = counter
-            /* OPPGAVE 2.3: FORKLAR HVA SOM SKJER PÅ LINJE 262
-             * Har henter vi vår counter for å fortelle hvor mange ganger vi har spillt. 
-             */
-            if (counter >= 0) {
-                document.getElementById("counter").style.color = "#be5944"
-            }
+                document.getElementById("counter").innerHTML = counter
+                /* OPPGAVE 2.3: FORKLAR HVA SOM SKJER PÅ LINJE 262
+                 * Har henter vi vår counter for å fortelle hvor mange ganger vi har spillt. 
+                 */
+                if (counter >= 0) {
+                    document.getElementById("counter").style.color = "#be5944"
+                }
 
-            //And display the button for playing again:
-            document.getElementById("replay").style.display = "block"
+                //And display the button for playing again:
+                document.getElementById("replay").style.display = "block"
+            }, 1000);
         }
 
         //Now, we need to make a function that restarts the game. This means setting all 
         //variables and values back to their initial state, so nothing is selected as we start:
         function restartGame() {
-            //Firstly, we'll reset the winner:
-            winner = ""
             //Then, we'll remove the class from the selected button:
             buttons.forEach(button => {
                 button.removeAttribute("class")
@@ -357,7 +319,21 @@
         function getRandomInt(max) {
             //Oppgave 1. Feil #4. Function skrevet feil. 
             return Math.floor(Math.random() * max);
-        } 
+        }
+
+        function checkWinner(playerSign, computerSign) {
+            if (playerSign === computerSign)
+                return "undecided"
+            else if (playerSign === "paper" && computerSign === "rock")
+                return "player"
+            else if (playerSign === "rock" && computerSign === "scissors")
+                return "player"
+            else if (playerSign === "scissors" && computerSign === "paper")
+                return "player"
+            else
+                return "computer"
+        }   
     </script>
 </body>
+
 </html>
