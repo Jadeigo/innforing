@@ -143,6 +143,9 @@
         </div>
         <div id="counterBox">
             <div>Number of games played: <span id="counter">0</span></div>
+            <div>Number of player Wins: <span id="playerWins">0</span></div>
+            <div>Number of computer Wins: <span id="computerWins">0</span></div>
+            <div>Draws: <span id="draws">0</span></div>
             <!-- A hidden button to show after a game, that resets and let the player play again -->
             <button id="replay" onClick="restartGame()">Play again</button>
         </div>
@@ -153,6 +156,10 @@
         let winner = ""
         //And prepare a counter-variable for number of games played:
         let counter = 0
+        //Added variable to see how many times player wins, computer and theres a tie. 
+        let playerWins = 0
+        let computerWins = 0 
+        let draws = 0
         //Make available signs available in code as an array
         const signs = ["rock", "paper", "scissors"]
         
@@ -258,15 +265,23 @@
             /* OPPGAVE 2.2: FORKLAR HVA SOM SKJER PÅ LINJE 254
              * Har henter vi ut hvem vinneren er, sånn at vi kan kan hente den i websida og må ikke gå in i console for å skjekke. 
              */
+             document.body.style.backgroundColor= "gray";
                 if(winner === "player") {
-                    winnerDiv.innerHTML = "You win!"
-                } else {
-                    winnerDiv.innerHTML = "It's a tie."
+                    winnerDiv.innerHTML = "You win!";
+                    playerWins++;
+                    document.body.style.backgroundColor = "#FFD700"
+                } 
+                else if(winner === "computer") {
+                    winnerDiv.innerHTML = "You lost.";
+                    computerWins++;
                 }
-                if(winner === "computer") {
-                    winnerDiv.innerHTML = "You lost."
-                }
-
+                else {
+                    winnerDiv.innerHTML = "It's a tie.";
+                    draws++;
+                }            
+            document.getElementById("playerWins").innerHTML = playerWins
+            document.getElementById("computerWins").innerHTML = computerWins
+            document.getElementById("draws").innerHTML = draws
             //Now, lastly, let's update the counter on how many games we have played:
             counter = counter + 1
 
@@ -304,12 +319,6 @@
         function getRandomInt(max) {
         //Oppgave 1. Feil #4. Function skrevet feil. 
             return Math.floor(Math.random() * max);
-        } 
-
-        if(winner != "player") {
-            document.body.style.backgroundColor= "gray"; 
-        } else {
-            document.body.style.backgroundColor = "#FFD700";
         } 
     </script>
 </body>
