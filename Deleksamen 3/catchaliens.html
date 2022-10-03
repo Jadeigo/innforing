@@ -23,9 +23,9 @@
     <script>
         //Sett opp Canvas:
         const canvas = document.getElementById("gamearea")
-        //skrivefeil i getElementBYId.
-        canvas.width = 704; //64px ikoner * 11 ruter
-        canvas.height = 512; //64px ikoner * 8 ruter
+        // Oppg 1. #1: skrivefeil i getElementBYId.
+        canvas.width = 960; //64px ikoner * 11 ruter
+        canvas.height = 640; //64px ikoner * 8 ruter
         const ctx = canvas.getContext("2d");
 
         //Gjør klar spillinformasjon
@@ -34,7 +34,7 @@
         let gameOver = false
         const player = { speed: 2 }
         const enemy = { }
-        let aliensCaught = 10;
+        let aliensCaught = 0;
         let history = []
         history.length < 1 ? document.getElementById("history").style.display = "none" : document.getElementById("history").style.display = "block"
 
@@ -75,7 +75,7 @@
         let down = false
         //Set retningsvariabel til true hvis riktig piltast er trykket:
         function buttonPressed(event) {
-            // Begynnelse av {} var ikke satt opp. Uten den kan vi ikke kjøre vår if commands. 
+            //Oppg1. #2: Begynnelse av {} var ikke satt opp. Uten den kan vi ikke kjøre vår if commands. 
             if(event.key === "ArrowLeft") { left = true } 
             if(event.key === "ArrowRight") { right = true } 
             if(event.key === "ArrowUp") { up = true }
@@ -99,8 +99,8 @@
         //Funksjon som modifiserer spillerens posisjon på spillbrettet:
         function playerMovement(speedModifier) {
             //Flytt player i riktig retning
-            left ? player.x -= player.speed * (speedModifier) : null
-            // to ? satt opp. trenger kun en. 
+            left ? player.x -= player.speed * speedModifier : null
+            // Oppg.1 #3: to ? satt opp. trenger kun en. 
             right ? player.x += player.speed * speedModifier : null
             up ? player.y -= player.speed * speedModifier : null
             down ? player.y += player.speed * speedModifier : null
@@ -142,14 +142,17 @@
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             playerLoaded ? ctx.drawImage(playerImage, player.x, player.y) : null
             enemyLoaded ? ctx.drawImage(enemyImage, enemy.x, enemy.y) : null
+            gameOver ? ctx.fillStyle = "red" : null
+            gameOver ? ctx.textAlign "center" : null
             gameOver ? ctx.fillText("GAME OVER!", 300, 200) : null
+            gameOver ? ctx.font = "60px Space Mono" : null
             document.getElementById("time").innerHTML = countdown
             document.getElementById("points").innerHTML = aliensCaught
         }
 
         //Funksjon som kjører spillet
         function renderGame() {
-        // function skrevet feil. Uten å skrive riktig så ka koden ikke leses riktig
+        // Oppg1. #4: function skrevet feil. Uten å skrive riktig så ka koden ikke leses riktig
             playerMovement(1)
             drawGameElements()
             requestAnimationFrame(renderGame)
