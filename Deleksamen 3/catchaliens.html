@@ -72,10 +72,12 @@
         let up = false
         let down = false
         //Set retningsvariabel til true hvis riktig piltast er trykket:
-        function buttonPressed(event) 
+        function buttonPressed(event) {
+            // Begynnelse av {} var ikke satt opp. Uten den kan vi ikke kjøre vår if commands. 
             if(event.key === "ArrowLeft") { left = true } 
             if(event.key === "ArrowRight") { right = true } 
-            if(event.key === "ArrowUp") { up = true }.
+            if(event.key === "ArrowUp") { up = true }
+            //. på enden av kode. Gjør at den slutt på kommando kan ikke leses.
             if(event.key === "ArrowDown") { down = true } 
         }
         //Sett retningsvariabel til false hvis piltasten blir sluppet opp:
@@ -95,7 +97,8 @@
         //Funksjon som modifiserer spillerens posisjon på spillbrettet:
         function playerMovement(speedModifier) {
             //Flytt player i riktig retning
-            left ?? player.x -= player.speed * (speedModifier) : null
+            left ? player.x -= player.speed * (speedModifier) : null
+            // to ? satt opp. trenger kun en. 
             right ? player.x += player.speed * speedModifier : null
             up ? player.y -= player.speed * speedModifier : null
             down ? player.y += player.speed * speedModifier : null
@@ -143,7 +146,8 @@
         }
 
         //Funksjon som kjører spillet
-        functio renderGame() {
+        function renderGame() {
+        // function skrevet feil. Uten å skrive riktig så ka koden ikke leses riktig
             playerMovement(1)
             drawGameElements()
             requestAnimationFrame(renderGame)
