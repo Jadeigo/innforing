@@ -22,13 +22,14 @@
     </aside>
     <script>
         //Sett opp Canvas:
-        const canvas = document.getElementBYId("gamearea")
+        const canvas = document.getElementById("gamearea")
+        //skrivefeil i getElementBYId.
         canvas.width = 704; //64px ikoner * 11 ruter
         canvas.height = 512; //64px ikoner * 8 ruter
         const ctx = canvas.getContext("2d");
 
         //Gjør klar spillinformasjon
-        let countdown = 10
+        let countdown = 60
         let iconsize = 64
         let gameOver = false
         const player = { speed: 2 }
@@ -60,7 +61,8 @@
         /************************************************************** 
          OPPGAVE 2 - KOMMENTAR 1
          Forklar hva de fire linjene i funksjonen drawCharacters() gjør
-         - din kommentar her -
+         - på det to første linjer av den koden så definerer hvor skal player plaseres i brettet.
+         De to siste er for å plasere fienden. vi bruker random sånn at den blir legget til i et random sted på brettet. -
         ***************************************************************/
 
         //Sjekk om spilleren har trykket ned (og holder) en tast:
@@ -91,7 +93,7 @@
          OPPGAVE 2 - KOMMENTAR 2
          Forklar hvorfor vi trenger å sjekke både når en knapp er trykket ned,
          og når den er sluppet opp igjen. 
-         - din kommentar her -
+         - Vi skjekker den for å si til spillet når vi beveger player og når vi slutter å bevege den. -
         ***************************************************************/
         
         //Funksjon som modifiserer spillerens posisjon på spillbrettet:
@@ -129,7 +131,7 @@
         /************************************************************** 
          OPPGAVE 2 - KOMMENTAR 3
          Forklar hva linjene i funksjonen countDownFunction() gjør
-         - din kommentar her -
+         - har sier vi til spillet at når countdown = 0 så skal spillet bli ferdig. Vi tar bort både player og fienden. -
         ***************************************************************/
 
         //Kjør funksjonen for nedtelling hver sekund (1000. milisekund)
