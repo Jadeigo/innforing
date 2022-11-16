@@ -145,10 +145,16 @@
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             playerLoaded ? ctx.drawImage(playerImage, player.x, player.y) : null
             enemyLoaded ? ctx.drawImage(enemyImage, enemy.x, enemy.y) : null
+<<<<<<< Updated upstream
             gameOver ? ctx.fillStyle = "red" : null
             gameOver ? ctx.textAlign = "center" : null 
             gameOver ? ctx.fillText("GAME OVER!", 300, 200) : null
             gameOver ? ctx.font = "60px Space Mono" : null
+=======
+            ctx.fillStyle = "red";
+            ctx.textAlign = "center";
+            ctx.font = "60px Space Mono";            gameOver ? ctx.fillText("GAME OVER!", 300, 200) : null
+>>>>>>> Stashed changes
             document.getElementById("time").innerHTML = countdown
             document.getElementById("points").innerHTML = aliensCaught
         }
