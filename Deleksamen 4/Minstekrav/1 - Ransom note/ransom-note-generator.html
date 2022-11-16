@@ -26,12 +26,11 @@
         //Create function to run on button click
         function makeRansom() {
             //TODO: Fetch text from textarea
-             const writtenText = document.getElementById("text")
+             const writtenText = document.getElementById("text").value
 
             //TODO: Ensure correct capitalization of text string fetched 
-            const letters = 
-            letters.textTransform = "uppercase";
-            document.getElementById("ransom-note").innerHTML = letters
+            document.getElementById("ransom-note").innerHTML = writtenText
+            writtenText.textTransform = "uppercase";
 
             //TODO: Make capitalized text string into array
             
