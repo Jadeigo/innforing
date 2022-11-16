@@ -29,8 +29,8 @@
              const writtenText = document.getElementById("text").value
 
             //TODO: Ensure correct capitalization of text string fetched 
-            document.getElementById("ransom-note").innerHTML = writtenText
-            writtenText.textTransform = "uppercase";
+            const spitOut = writtenText.toUpperCase();
+            document.getElementById("ransom-note").innerHTML = spitOut;
 
             //TODO: Make capitalized text string into array
             
