@@ -10,7 +10,7 @@
 <body>
     <header>
         <h1>Exam 2</h1>
-        <button id="toggleMenu" aria-label="Open the menu">Menu <img src="menuicon.png" aria-hidden="true"></button>
+        <button id="toggleMenu" onclick="toggle()" aria-label="Open the menu">Menu <img src="menuicon.png" aria-hidden="true"></button>
         <nav id="menu">
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -49,14 +49,14 @@
          * 2) endre knappen til å inneholde teksten Close og bildet closeicon.png
          */
 
-         function openMenu() {
-            document.getElementById("menu").style.width = "250px";
-            document.getElementById("button").style.marginRight = "250px";
-         }
-         function closeMenu() {
-            document.getElementById("menu").style.width = "0px";
-            document.getElementById("button").style.marginRight = "0px";
-         }
+        function toggle() {
+            if (!menu.classList.contains("active")) {
+                document.getElementById("menu").classList.add("active")
+            } else {
+                document.getElementById("menu").classList.remove ("active")
+            }
+        }
+
 
         //Variabel for meny-HTML
         //TODO: Skal ikke starte som en tom streng, må inneholde et punkt for å møte oppgaveteksten...
@@ -65,14 +65,15 @@
         //Gå gjennom første nivå av menupoints-array
         menuPoints.map(category => {
             //TODO: Forbered HTML med overskrift og listestart
-            
             //TODO: Gå gjennom array på andre nivå (menulinks)
             //TODO: For hver menulink: fyll menuHTML med listeelementer og link
             
             //TODO: Avslutt liste
+            menuHTML = ` 
             
+            `
+            console.log(menuHTML)
         })
-
         //TODO: Skriv ut HTML til <nav>:
         
     </script>
