@@ -33,9 +33,10 @@
 
             //TODO: Make capitalized text string into array
             const spitOutArray = Array.from(spitOut)
-            document.getElementById("ransom-note").innerHTML = spitOutArray;
+            //document.getElementById("ransom-note").innerHTML = spitOutArray;
             
             //TODO: Prepare empty string variable for HTML
+            let ransomString = ""
             //document.getElementById("ransom-note").innerHTML = wholeRansom;        
 
             /* TODO:
@@ -48,16 +49,20 @@
              *       use the end.png-file (image of exclamation mark)
              *    2) If character is a space, insert <span class="space-separator"></span> into variabel for HTML
              * */
+           var imgA = document.getElementById
+            if (spitOutArray == allowedCharacters){
+                function imagespitter(){
+                    if (spitOutArray == "A") {
+                        document.getElementById("ransome-note").
+                    }
+                }
+            } //else if (spitOutArray == "?.!") {
+                //document.getElementById("ransome-note").src = "./img/end.png"
+           // } else if (spitOutArray == "" ) {
+                //<span class="space-separator"> </span>
             
-
+            
             //TODO: Write HTML output to #ransom-note
-            let ransombilde = null
-            /*if (ransombilde === false) {
-                null
-            } else*/ if (ransombilde === Array.from(spitOut)) {
-                ransombilde.onload = () => {ransombilde = true}
-                document.getElementById("ransombilde").src ="img/A.png";
-            } 
             
         }
     </script>
