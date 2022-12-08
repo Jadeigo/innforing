@@ -43,19 +43,19 @@
 
             //TODO: System/code: to construct hexa-code for primary (six allowed characters):
             var hexlength = 6
-            for (var i=0; i<hexlength; i++) {
+            for (var i = 0; i < hexlength; i++) {
 		        var rand = Math.floor(Math.random() * hexValuesString.length);
 		        primary += hexValuesString.substring(rand, rand+1);
 	        }
             
             //TODO: System/code to construct hexa-code for secondary (six allowed characters):
-            for (var i=0; i<hexlength; i++) {
+            for (var i = 0; i < hexlength; i++) {
 		        var rand = Math.floor(Math.random() * hexValuesString.length);
 		        secondary += hexValuesString.substring(rand, rand+1);
 	        }
 
             //TODO: System/code to construct hexa-code for third (six allowed characters):
-            for (var i=0; i<hexlength; i++) {
+            for (var i = 0; i < hexlength; i++) {
 		        var rand = Math.floor(Math.random() * hexValuesString.length);
 		        third += hexValuesString.substring(rand, rand+1);
 	        }
@@ -73,6 +73,10 @@
         }
         //TODO: Make the function run on button click
         document.getElementById("generate").addEventListener("click", generateColors)
+
+        //kilder:
+        //https://stackoverflow.com/questions/41092042/generating-a-strings-of-random-characters-from-an-array-and-enabling-repetition
+        //
     </script>
 </body>
 </html>

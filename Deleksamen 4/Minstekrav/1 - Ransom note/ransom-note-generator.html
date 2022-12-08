@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ransom Note Generator</title>
     <link href="ransom-style.css" rel="stylesheet">
+    <link href="img/" rel="pictures">   
 </head>
 <body>
     <section id="input-form">
@@ -33,11 +34,9 @@
 
             //TODO: Make capitalized text string into array
             const spitOutArray = Array.from(spitOut)
-            document.getElementById("ransom-note").innerHTML = spitOutArray;
             
             //TODO: Prepare empty string variable for HTML
-            //document.getElementById("ransom-note").innerHTML = wholeRansom;        
-
+            let emptyString= ""      
             /* TODO:
              * 1) Go through array of characters
              * 2) Check if capitalized array character is allowed:
@@ -48,18 +47,27 @@
              *       use the end.png-file (image of exclamation mark)
              *    2) If character is a space, insert <span class="space-separator"></span> into variabel for HTML
              * */
+            spitOutArray.forEach((spitOut) => {
+                if(allowedCharactersArray.includes(spitOut)) {
+                    emptyString += `<img src= "img/${spitOut}.png">`;
+                } else if (spitOut === "," || spitOut === "!" || spitOut == "?") {
+                    emptyString += `<img src= "img/end.png">`;
+                } else if (spitOut === " ") {
+                    emptyString += `<span class="space-separator"></span>`; 
+                } else {
+                    emptyString += spitOut;
+                }
+            })
             
 
             //TODO: Write HTML output to #ransom-note
-            let ransombilde = null
-            /*if (ransombilde === false) {
-                null
-            } else*/ if (ransombilde === Array.from(spitOut)) {
-                ransombilde.onload = () => {ransombilde = true}
-                document.getElementById("ransombilde").src ="img/A.png";
-            } 
-            
+            document.getElementById("ransom-note").innerHTML = emptyString
         }
+        //kilder:
+        //https://www.w3schools.com/js/js_if_else.asp
+        //  
+
     </script>
+    
 </body>
 </html>

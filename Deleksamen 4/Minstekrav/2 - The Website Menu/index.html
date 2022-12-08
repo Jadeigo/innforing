@@ -65,17 +65,44 @@
         //Gå gjennom første nivå av menupoints-array
         menuPoints.map(category => {
             //TODO: Forbered HTML med overskrift og listestart
+            menuHTML = `
+            <h2>${menuheader = "Javascript resources"}</h2>
+            <ul>
+                <li>${menutext= `<a href="https://www.w3schools.com/js/default.asp">W3Schools</a>`}</li>
+                <li>${menutext = `<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">Mozilla Developer Network</a>`}</li>
+                <li>${menutext = `<a href="http://jsforcats.com/">JavaScript for cats</a>`}</li>
+            </ul>
+
+            <h2>${menuheader = "HTML resources"}</h2>
+            <ul>
+                <li>${menutext = `<a href="https://www.w3schools.com/html/default.asp">W3Schools</a>`}</li>
+                <li>${menutext = `<a href="https://validator.w3.org/">W3 Validator</a>`}</li>
+            </ul>
+
+            <h2>${menuheader = "CSS resources"}</h2>
+            <ul>
+                <li>${menutext = `<a href="https://www.w3schools.com/css/default.asp">W3Schools</a>`}</li>
+                <li>${menutext = `<a href="https://css-tricks.com/">CSS Tricks</a>`}</li>
+            </ul>
+            `
+
+            // gjørde meny i et annemetode å gjøre meny. 
+
             //TODO: Gå gjennom array på andre nivå (menulinks)
+            
             //TODO: For hver menulink: fyll menuHTML med listeelementer og link
             
             //TODO: Avslutt liste
-            menuHTML = ` 
             
-            `
-            console.log(menuHTML)
+            
+            
+            
         })
         //TODO: Skriv ut HTML til <nav>:
-        
+        document.getElementById("menu").innerHTML = menuHTML
+
+        //kilder: 
+        //
     </script>
 </body>
 </html>
